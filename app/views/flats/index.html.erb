@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>All our flats</h1>
+  <p>All <%= "#{@flats.count}" %> flats. </p>
+  <div class="card-container">
+  <% @flats.each do |flat| %>
+    <div class="card-product mb-2">
+      <img src= <%= flat.picture %>>
+      <div class="card-product-infos">
+          <h2> <%= link_to flat.name, flat_path(flat)  %> </h2>
+          <p> <%= flat.address %> </p>
+          <p> <i class="fas fa-dollar-sign"></i> <%= flat.price_per_night %> </p>
+          <p><i class="fas fa-user-friends"></i> <%= flat.number_of_guests %> </p>
+      </div>
+      <div class="card-product-actions">
+        <a data-method='delete' href=<%="#{flat_path(flat)}"  %> ><i class="fas fa-trash"></i></a>
+        <a href=<%="#{edit_flat_path(flat)}"  %> ><i class="fas fa-edit"></i></a>
+      </div>
+    </div>
+  <% end %>
+  </div>
+
+
+</div>
